@@ -43,7 +43,7 @@ pprint(menu)
 pages = api.get_menus_id_pages(30924)
 pprint(pages)
 
-# Get pages from a certain menu
+# Get dishes from a certain menu
 dishes = api.get_menus_id_dishes(30924)
 pprint(dishes)
 
