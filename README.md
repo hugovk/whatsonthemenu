@@ -1,6 +1,6 @@
 # whatsonthemenu
 
-Python interface to NYPL's What's on The Menu API.
+Python interface to [NYPL's What's on The Menu API](https://github.com/NYPL/menus-api).
 
 ## Installation
 
@@ -20,6 +20,8 @@ python setup.py install
 ## Example use
 
 First, you need to ask NYPL for a token: https://github.com/NYPL/menus-api#tokens
+
+Return values are the JSON responses documented in the API: https://github.com/NYPL/menus-api#menus
 
 ```python
 from whatsonthemenu import WhatsOnTheMenu
