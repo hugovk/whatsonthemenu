@@ -37,6 +37,13 @@ class WhatsOnTheMenu(object):
             params += "&" + param_name + "=" + str(param_value)
         return params
 
+    def _paramify_pages(self, per_page, page):
+        """ Initialise params string with per_page and page """
+        params = ""
+        params = self._paramify(params, "per_page", per_page)
+        params = self._paramify(params, "page", page)
+        return params
+
     def rate_limit(self):
         """
         Return the daily rate limit, and how many your API token has remaining
@@ -53,10 +60,10 @@ class WhatsOnTheMenu(object):
         _, remaining = self.rate_limit()
         return remaining
 
-    def get_menus(self, min_year=None, max_year=None, sort_by=None,
-                  status=None):
+    def get_menus(self, per_page=None, page=None, min_year=None, max_year=None,
+                  sort_by=None, status=None):
         """ GET /menus """
-        params = ""
+        params = self._paramify_pages(per_page, page)
         params = self._paramify(params, "min_year", min_year)
         params = self._paramify(params, "max_year", max_year)
         params = self._paramify(params, "sort_by", sort_by)
@@ -65,24 +72,30 @@ class WhatsOnTheMenu(object):
         method = "menus"
         return self.nypl_menus_api(method, params)
 
-    def get_menus_id(self, id):
+    def get_menus_id(self, id, per_page=None, page=None):
         """ GET /menus/{id} """
+        params = self._paramify_pages(per_page, page)
+
         method = "menus/" + str(id)
-        return self.nypl_menus_api(method)
+        return self.nypl_menus_api(method, params)
 
-    def get_menus_id_pages(self, id):
+    def get_menus_id_pages(self, id, per_page=None, page=None):
         """ GET /menus/{id}/pages """
+        params = self._paramify_pages(per_page, page)
+
         method = "menus/" + str(id) + "/pages"
-        return self.nypl_menus_api(method)
+        return self.nypl_menus_api(method, params)
 
-    def get_menus_id_dishes(self, id):
+    def get_menus_id_dishes(self, id, per_page=None, page=None):
         """ GET /menus/{id}/dishes """
-        method = "menus/" + str(id) + "/dishes"
-        return self.nypl_menus_api(method)
+        params = self._paramify_pages(per_page, page)
 
-    def get_dishes_search(self, query):
+        method = "menus/" + str(id) + "/dishes"
+        return self.nypl_menus_api(method, params)
+
+    def get_dishes_search(self, query, per_page=None, page=None):
         """ GET /dishes/search """
-        params = ""
+        params = self._paramify_pages(per_page, page)
         params = self._paramify(params, "query", query)
 
         method = "dishes/search"
