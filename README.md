@@ -50,7 +50,7 @@ dishes = api.get_menus_id_dishes(30924)
 pprint(dishes)
 
 # Search for meatballs
-dishes = api.get_dishes_search("meatballs")
+dishes = api.get_dishes_search("meatballs", per_page=20, page=2)
 pprint(dishes)
 
 # Show rate limit
