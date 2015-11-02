@@ -7,6 +7,8 @@ https://github.com/NYPL/menus-api
 from __future__ import print_function, unicode_literals
 import requests
 
+__version__ = '0.1.0'
+
 
 class WhatsOnTheMenu(object):
     """ Python interface for NYPL's What's on The Menu API """
