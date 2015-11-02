@@ -23,10 +23,4 @@ python setup.py sdist --format=gztar upload
 * [ ] Create new GitHub release: https://github.com/hugovk/whatsonthemenu/releases/new
   * Tag: Pick existing tag "0.1.0"
   * Title: "Release 0.1.0"
-* [ ] Update develop branch from master:
-```bash
-git checkout develop
-git merge master --ff-only
-git push
 ```
-
