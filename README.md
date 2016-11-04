@@ -56,3 +56,7 @@ pprint(dishes)
 # Show rate limit
 print("Rate limit remaining: ", api.rate_limit_remaining())
 ```
+
+## See also
+
+The [open-source Menu Bot](https://github.com/hugovk/menubot) uses this API. See it in action on [Twitter](https://twitter.com/menubot) and [Tumblr](http://menubot.tumblr.com/).
