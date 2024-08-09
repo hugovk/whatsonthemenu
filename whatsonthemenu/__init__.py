@@ -23,7 +23,7 @@ class WhatsOnTheMenu(object):
         if not params:
             params = ""
         url = self.base_url + method + "?token=" + self.token + params
-        r = requests.get(url)
+        r = requests.get(url, timeout=10)
 
         self.ratelimit_limit = r.headers['X-Ratelimit-Limit']
         self.ratelimit_remaining = r.headers['X-Ratelimit-Remaining']
